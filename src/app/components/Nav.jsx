@@ -1,7 +1,13 @@
+import Link from "next/link";
+
 export function Nav() {
   return (
     <>
-      <h1>I am nav</h1>
+      <div className="navbar text-center justify-center bg-base-300">
+        <Link className="btn btn-ghost text-xl" href={"/"}>
+          ToDola
+        </Link>
+      </div>
     </>
   );
 }
