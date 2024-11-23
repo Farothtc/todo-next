@@ -5,7 +5,7 @@ export function Nav() {
     <>
       <div className="navbar text-center justify-center bg-base-300">
         <Link className="btn btn-ghost text-xl" href={"/"}>
-          ToDola
+          Task Track
         </Link>
       </div>
     </>
