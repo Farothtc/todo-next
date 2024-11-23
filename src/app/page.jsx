@@ -5,12 +5,22 @@ import { useState } from "react";
 export default function Home() {
   const [todoText, setTodoText] = useState("");
   const [tasks, setTasks] = useState([]);
+  const [taskPosition, setTaskPosition] = useState(1);
 
   const handleClick = () => {
-    if (todoText) {
-      setTasks((prevTask) => [...prevTask, todoText]);
+    if (todoText.trim()) {
+      const newTask = {
+        id: taskPosition,
+        text: todoText,
+      };
+      setTasks((prevTask) => [...prevTask, newTask]);
       setTodoText("");
+      setTaskPosition((prevTaskPosition) => prevTaskPosition + 1);
     }
+  };
+
+  const handleDelete = (id) => {
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
   };
 
   return (
@@ -29,8 +39,13 @@ export default function Home() {
             </button>
           </div>
           <div className="new-task text-center flex justify-center absolute inset-0 gap-3">
-            {tasks.map((task, index) => (
-              <Task key={index} todoText={task} id={index + 1} />
+            {tasks.map((task) => (
+              <Task
+                key={task.id}
+                todoText={task.text}
+                id={task.id}
+                handleDelete={handleDelete}
+              />
             ))}
           </div>
         </div>
