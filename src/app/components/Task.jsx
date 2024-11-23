@@ -2,10 +2,8 @@
 import { useState } from "react";
 
 export function Task(props) {
-  const [editText, setEditText] = useState([]);
+  const [editText, setEditText] = useState("");
   const [editTask, setEditTask] = useState(props.todoText);
-
-  console.log(editTask);
 
   const handleEdit = () => {
     if (editText.trim()) {
@@ -13,6 +11,8 @@ export function Task(props) {
       setEditText("");
     }
   };
+
+  console.log(editTask);
   return (
     <>
       <div className="card bg-base-300 shadow-xl ">
@@ -52,7 +52,12 @@ export function Task(props) {
               </div>
             </div>
           </dialog>
-          <button className="btn btn-outline btn-error">Delete</button>
+          <button
+            className="btn btn-outline btn-error"
+            onClick={() => props.handleDelete(props.id)}
+          >
+            Delete
+          </button>
         </div>
       </div>
     </>
