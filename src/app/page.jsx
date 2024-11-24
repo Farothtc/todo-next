@@ -1,6 +1,8 @@
 "use client";
 import { Task } from "./components/Task";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import anime from "animejs/lib/anime.es.js";
+import Progress from "./components/Progress";
 
 export default function Home() {
   const [todoText, setTodoText] = useState("");
@@ -22,6 +24,17 @@ export default function Home() {
   const handleDelete = (id) => {
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
   };
+
+  // useEffect(() => {
+  //   anime({
+  //     targets: ".main-all",
+  //     opacity: [0, 1], // Fade in
+  //     translateY: [0, 20], // Move up slightly
+  //     delay: anime.stagger(100), // Stagger each card by 100ms
+  //     duration: 500,
+  //     easing: "easeOutQuad",
+  //   });
+  // }, []);
 
   return (
     <>
@@ -58,6 +71,7 @@ export default function Home() {
               </div>
             </div>
           </div>
+          {tasks.length > 0 ? "" : <Progress />}
         </div>
       </main>
     </>
