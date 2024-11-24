@@ -38,15 +38,25 @@ export default function Home() {
               Add Task
             </button>
           </div>
-          <div className="new-task text-center flex justify-center absolute inset-0 gap-3">
-            {tasks.map((task) => (
-              <Task
-                key={task.id}
-                todoText={task.text}
-                id={task.id}
-                handleDelete={handleDelete}
-              />
-            ))}
+          <div className="container mx-auto">
+            <div className="new-task text-center flex justify-center absolute inset-0 gap-3">
+              <div className="grid grid-cols-4 gap-4">
+                {tasks.length === 0 ? (
+                  <p className="text-4xl mt-20 absolute inset-0 text-center text-white">
+                    Looks lonely here add some tasks to get started !
+                  </p>
+                ) : (
+                  tasks.map((task) => (
+                    <Task
+                      key={task.id}
+                      todoText={task.text}
+                      id={task.id}
+                      handleDelete={handleDelete}
+                    />
+                  ))
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </main>
