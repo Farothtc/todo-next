@@ -42,7 +42,7 @@ export function Task(props) {
               <div className="modal-action">
                 <form method="dialog">
                   <button
-                    className="btn btn-outline btn-success"
+                    className="btn btn-outline btn-success me-3"
                     onClick={() => handleEdit()}
                   >
                     Apply
