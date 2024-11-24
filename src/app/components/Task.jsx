@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import anime from "animejs/lib/anime.es.js";
 
 export function Task(props) {
   const [editText, setEditText] = useState("");
@@ -12,10 +13,30 @@ export function Task(props) {
     }
   };
 
-  console.log(editTask);
+  const deleteAnimation = () => {
+    anime({
+      targets: `#card-${props.id}`, // Target the specific task card
+      scale: [1, 0], // Shrink the card
+      opacity: [1, 0], // Fade out
+      duration: 500,
+      easing: "easeInQuad",
+      complete: () => props.handleDelete(props.id), // Call the delete function after animation
+    });
+  };
+
+  useEffect(() => {
+    anime({
+      targets: `#card-${props.id}`, // Class of the new task card
+      translateX: [-100, 0], // Slide in from the left
+      opacity: [0, 1], // Fade in
+      duration: 500,
+      easing: "easeOutQuad",
+    });
+  }, [props.todoText]);
+
   return (
     <>
-      <div className="card bg-base-300 shadow-xl ">
+      <div className="card bg-base-300 shadow-xl " id={`card-${props.id}`}>
         <div className="card-body flex-row items-center justify-center">
           <p>{props.id + "."}</p>
           <p>{editTask}</p>
@@ -54,7 +75,7 @@ export function Task(props) {
           </dialog>
           <button
             className="btn btn-outline btn-error"
-            onClick={() => props.handleDelete(props.id)}
+            onClick={() => deleteAnimation()}
           >
             Delete
           </button>
