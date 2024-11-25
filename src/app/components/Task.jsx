@@ -15,7 +15,7 @@ export function Task(props) {
 
   const deleteAnimation = () => {
     anime({
-      targets: `#card-${props.id}`, // Target the specific task card
+      targets: `#card-${props.id}`,
       scale: [1, 0], // Shrink the card
       opacity: [1, 0], // Fade out
       duration: 500,
@@ -36,24 +36,28 @@ export function Task(props) {
 
   return (
     <>
-      <div className="card bg-base-300 shadow-xl " id={`card-${props.id}`}>
-        <div className="card-body flex-row items-center justify-center">
-          <p>{props.id + "."}</p>
-          <p>{editTask}</p>
-          <button
-            className="btn btn-outline btn-info"
-            onClick={() =>
-              document.getElementById(`modal-${props.id}`).showModal()
-            }
-          >
-            Edit
-          </button>
-          <button
-            className="btn btn-outline btn-error"
-            onClick={() => deleteAnimation()}
-          >
-            Delete
-          </button>
+      <div className="card bg-base-300 shadow-xl mb-2" id={`card-${props.id}`}>
+        <div className="card-body flex-col items-center justify-center">
+          <div>
+            {/* <p>{props.id + "."}</p> */}
+            <p>{editTask}</p>
+          </div>
+          <div>
+            <button
+              className="btn btn-outline btn-info me-3"
+              onClick={() =>
+                document.getElementById(`modal-${props.id}`).showModal()
+              }
+            >
+              Edit
+            </button>
+            <button
+              className="btn btn-outline btn-error"
+              onClick={() => deleteAnimation()}
+            >
+              Delete
+            </button>
+          </div>
         </div>
       </div>
       <dialog
