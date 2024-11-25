@@ -2,8 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+}
+
 .main-all {
-  height: 90vh;
+  padding-bottom: 1rem;
+}
+
+.footer {
+  position: relative;
+  margin-top: 0;
 }
 
 .text-wrapper {
@@ -11,7 +32,45 @@
 }
 
 .new-task {
-  top: 25%;
+  margin-top: 10%;
+}
+
+.greet-lonely {
+  position: relative;
+  margin-top: 15%;
+}
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+  .new-task {
+    margin-top: 15%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  .new-task {
+    margin-top: 20%;
+  }
+  .greet-lonely {
+    margin-top: 20%;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .new-task {
+    margin-top: 25%;
+  }
+  .greet-lonely {
+    margin-top: 25%;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 576px) {
+  .new-task {
+    margin-top: 40%;
+  }
+  .greet-lonely {
+    margin-top: 45%;
+  }
 }
 
 .card {
