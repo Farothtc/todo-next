@@ -38,7 +38,7 @@ export default function Home() {
 
   return (
     <>
-      <main className="main-all">
+      <main className="main-all text-center">
         <div className="container mx-auto">
           <div className="text-wrapper flex justify-center absolute inset-0 gap-3">
             <input
@@ -51,24 +51,22 @@ export default function Home() {
               Add Task
             </button>
           </div>
-          <div className="container mx-auto">
-            <div className="new-task text-center flex justify-center absolute inset-0 gap-3">
-              <div className="grid grid-cols-4 gap-4">
-                {tasks.length === 0 ? (
-                  <p className="text-4xl mt-20 absolute inset-0 text-center text-white">
-                    Looks lonely here add some tasks to get started !
-                  </p>
-                ) : (
-                  tasks.map((task) => (
-                    <Task
-                      key={task.id}
-                      todoText={task.text}
-                      id={task.id}
-                      handleDelete={handleDelete}
-                    />
-                  ))
-                )}
-              </div>
+          {tasks.length === 0 && (
+            <div className="greet-lonely text-xl lg:text-4xl md:text-3xl sm:text-2xl absolute inset-0 text-center text-white">
+              Looks lonely here add some tasks to get started !
+            </div>
+          )}
+
+          <div className="new-task text-center flex justify-center gap-3">
+            <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4">
+              {tasks.map((task) => (
+                <Task
+                  key={task.id}
+                  todoText={task.text}
+                  id={task.id}
+                  handleDelete={handleDelete}
+                />
+              ))}
             </div>
           </div>
           {tasks.length > 0 ? "" : <Progress />}
