@@ -36,7 +36,7 @@ export default function Progress() {
   }, [isWaiting]); // Run when `isWaiting` changes
 
   return (
-    <div className="progress-container flex flex-col justify-center items-center h-screen">
+    <div className="progress-container flex flex-col justify-center items-center ">
       {/* Render the current progress bar */}
       <div
         className="radial-progress"
@@ -47,7 +47,7 @@ export default function Progress() {
       >
         {progressValues[currentIndex]}%
       </div>
-      <div className="mt-5 text-xl text-white">
+      <div className="mt-5 text-xl text-white lg:text-2xl md:text-xl sm:text-lg">
         {progressValues[currentIndex] < 100 ? (
           <p>Loading productivity...</p>
         ) : (
