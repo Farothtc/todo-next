@@ -1,7 +1,6 @@
 "use client";
 import { Task } from "./components/Task";
-import { useEffect, useState } from "react";
-import anime from "animejs/lib/anime.es.js";
+import { useState } from "react";
 import Progress from "./components/Progress";
 
 export default function Home() {
