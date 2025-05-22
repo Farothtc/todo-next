@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --background: #000;
+  --foreground: #ffff;
+}
+
 html,
 body {
   height: 100%;
