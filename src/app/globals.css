@@ -7,6 +7,15 @@
   --foreground: #ffff;
 }
 
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #ffff;
+    /* White background for light theme */
+    --foreground: #000;
+    /* Black text for light theme */
+  }
+}
+
 html,
 body {
   height: 100%;
@@ -17,6 +26,8 @@ body {
   display: flex;
   flex-direction: column;
   max-height: 100vh;
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 main {

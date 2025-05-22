@@ -47,7 +47,10 @@ export default function Home() {
               className="input input-bordered w-full max-w-xs centered-text"
               onChange={(el) => setTodoText(el.target.value)}
             />
-            <button onClick={handleClick} className="btn btn-outline">
+            <button
+              onClick={handleClick}
+              className="btn btn-outline bg-base-300 text-gray-400"
+            >
               Add Task
             </button>
           </div>

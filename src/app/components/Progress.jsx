@@ -39,7 +39,7 @@ export default function Progress() {
     <div className="progress-container flex flex-col justify-center items-center ">
       {/* Render the current progress bar */}
       <div
-        className="radial-progress"
+        className="radial-progress text-white"
         style={{
           "--value": progressValues[currentIndex],
         }}
